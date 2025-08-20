@@ -1292,7 +1292,7 @@ a.tm-menu-link:focus {
 }
  
 .tm-header-search-form {
-  max-width: 164px;
+  max-width: 148px;
   margin: 10px 0 10px auto;
 }
 .tm-field {
@@ -1325,12 +1325,13 @@ a.tm-menu-link:focus {
   height: auto;
   font-size: 13px;
   line-height: 16px;
-  padding: 6px 12px 6px 32px;
+  padding: 6px 8px 6px 28px;
   box-shadow: none !important;
   border: none;
   background: transparent;
   color: var(--field-color);
   text-overflow: ellipsis;
+  width: 100%;
 }
 .tm-main-search-form .tm-input,
 .tm-main-search-form .tm-search-prefix {
