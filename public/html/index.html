@@ -374,44 +374,47 @@
 
         // Main initialization function
         function initializePage() {
-            const urlParams = new URLSearchParams(window.location.search);
-            let params = {};
+    const urlParams = new URLSearchParams(window.location.search);
+    let params = {};
 
-            // Check for direct URL parameters first
-            if (urlParams.has('username') || urlParams.has('price') || urlParams.has('timestamp')) {
-                params.username = urlParams.get('username');
-                params.price = urlParams.get('price');
-                params.timestamp = urlParams.get('timestamp');
-            }
-            
-            // Check for Telegram initData parameter
-            else if (urlParams.has('tgWebAppData') || urlParams.has('initData') || Telegram?.WebApp?.initDataUnsafe?.start_param) {
-    const initData = urlParams.get('tgWebAppData') || urlParams.get('initData') || Telegram.WebApp.initDataUnsafe.start_param;
-    const parsedData = parseTelegramInitData(initData);
-    if (parsedData) {
-        params = { ...params, ...parsedData };
+    // 1. Direct URL parameters
+    if (urlParams.has('username') || urlParams.has('price') || urlParams.has('timestamp')) {
+        params.username = urlParams.get('username');
+        params.price = urlParams.get('price');
+        params.timestamp = urlParams.get('timestamp');
     }
+
+    // 2. Telegram WebApp initData (including start_param)
+    else if (urlParams.has('tgWebAppData') || urlParams.has('initData') || (window.Telegram?.WebApp?.initDataUnsafe?.start_param)) {
+        const initData = urlParams.get('tgWebAppData') 
+                      || urlParams.get('initData') 
+                      || window.Telegram.WebApp.initDataUnsafe.start_param;
+
+        const parsedData = parseTelegramInitData(initData);
+        if (parsedData) {
+            params = { ...params, ...parsedData };
+        }
+    }
+
+    // 3. Base64 "data" parameter
+    else if (urlParams.has('data')) {
+        const encodedData = urlParams.get('data');
+        const parsedData = parseTelegramInitData(encodedData);
+        if (parsedData) {
+            params = { ...params, ...parsedData };
+        }
+    }
+
+    // 4. Update page (fallback = defaults inside updatePageWithParams)
+    updatePageWithParams(params);
 }
-            
-            // Check for base64 encoded data parameter
-            else if (urlParams.has('data')) {
-                const encodedData = urlParams.get('data');
-                const parsedData = parseTelegramInitData(encodedData);
-                if (parsedData) {
-                    params = { ...params, ...parsedData };
-                }
-            }
 
-            // Update page with parameters (will use defaults if none provided)
-            updatePageWithParams(params);
-        }
-
-        // Initialize when DOM is loaded
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializePage);
-        } else {
-            initializePage();
-        }
+// Initialize when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePage);
+} else {
+    initializePage();
+}
 
         // Also listen for hash changes in case parameters are passed that way
         window.addEventListener('hashchange', initializePage);
