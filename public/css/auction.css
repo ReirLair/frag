@@ -3949,7 +3949,8 @@ a.tm-table-action-link:hover {
   .tm-table td.wide-last-col .table-cell,
   .tm-table thead > tr > th:last-child,
   .tm-table thead > tr > th.wide-last-col {
-    padding-right: 10px;
+    text-align: center;
+    padding-right: 0px;
   }
   .tm-table > thead > tr:first-child > th.thin-last-col {
     border-top-right-radius: 0;
