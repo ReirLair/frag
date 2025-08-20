@@ -872,9 +872,11 @@ a.tm-pagination-item.active:focus {
   color: var(--header-color);
 }
 .tm-menu-button {
-  display: block;        /* make it a block element */
-  width: auto;           /* shrink to content width instead of full width */
-  margin: 0 auto 12px;   /* horizontally center, keep bottom margin */
+  display: block;               /* block behavior */
+  width: calc(100% - 40px);     /* fill width minus left/right space (20px each side) */
+  margin: 0 20px 12px;          /* horizontal space and bottom margin */
+  padding: 10px 20px;           /* button padding */
+  box-sizing: border-box;       /* include padding in width */
 }
 .tm-menu-account-address {
   font-size: 15px;
