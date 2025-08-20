@@ -43,8 +43,7 @@ app.post("/disconnect", (req, res) => {
 async function getWalletBalance(address) {
   try {
     const res = await axios.get(`https://tonapi.io/v2/accounts/${address}`);
-    // The balance is usually in res.data.account.balance
-    return res.data.account.balance; 
+    return res.data.balance; // ✅ balance is directly on res.data
   } catch (err) {
     console.error("❌ Error fetching balance:", err.response?.data || err.message);
     return null;
